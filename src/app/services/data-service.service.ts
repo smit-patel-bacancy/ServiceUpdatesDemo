@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-// import { ArithmeticServiceService } from './arithmetic-service.service';
+import { inject, Injectable } from '@angular/core';
+import { ArithmeticServiceService } from './arithmetic-service.service';
 
 export interface MarksDetails {
   subject: string,
@@ -17,6 +17,8 @@ export class DataServiceService {
     { subject: 'C++', marks: 85 },
   ]
 
+  private arithmeticService = inject(ArithmeticServiceService);
+
   constructor() { }
 
   // injecting services into services
@@ -31,7 +33,7 @@ export class DataServiceService {
   }
 
   // injecting services into services
-  // public getSum(value1: number, value2: number): number {
-  //   return this.arithmeticService.getSum(value1, value2);
-  // }
+  public getSum(value1: number, value2: number): number {
+    return this.arithmeticService.getSum(value1, value2);
+  }
 }

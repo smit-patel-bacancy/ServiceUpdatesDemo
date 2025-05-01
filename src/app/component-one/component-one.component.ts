@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ArithmeticServiceService } from '../services/arithmetic-service.service';
 import { DataServiceService } from '../services/data-service.service';
 
@@ -18,8 +18,12 @@ export class ComponentOneComponent implements OnInit {
   public valueTwo: string = '';
   public result!: number;
 
-  constructor(public marksService: DataServiceService, private arithmeticService: ArithmeticServiceService) {
-  }
+  public marksService = inject(DataServiceService);
+  private arithmeticService = inject(ArithmeticServiceService);
+
+  constructor() { }
+  // constructor(public marksService: DataServiceService, private arithmeticService: ArithmeticServiceService) {
+  // }
 
   ngOnInit(): void {
     // normal component array
@@ -30,15 +34,15 @@ export class ComponentOneComponent implements OnInit {
     ]
 
     // Use of Service Marks Array
-    // this.marksDetails = this.marksService.getMarksDetails();
+    this.marksDetails = this.marksService.getMarksDetails();
   }
 
   public pushIntoArray(): void {
     // normal component array
-    this.marksDetails.push({ subject: this.subject, marks: +this.marks });
+    // this.marksDetails.push({ subject: this.subject, marks: +this.marks });
 
     // Use of Service Marks Array
-    // this.marksService.pushMarksDetails({ subject: this.subject, marks: +this.marks });
+    this.marksService.pushMarksDetails({ subject: this.subject, marks: +this.marks });
   }
 
   // For example, I have used only simple logic;
