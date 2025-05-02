@@ -1,38 +1,31 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ArithmeticServiceService } from './arithmetic-service.service';
 
 export interface MarksDetails {
-  subject: string,
-  marks: number
+  subject: string;
+  marks: number;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataServiceService {
-
-  public centralMarksDetails: Array<MarksDetails> = [
-    { subject: 'Data Sturucture', marks: 89 },
+  private centralMarksDetails: MarksDetails[] = [
+    { subject: 'Data Structure', marks: 89 },
     { subject: 'DBMS', marks: 82 },
-    { subject: 'C++', marks: 85 },
-  ]
+    { subject: 'C++', marks: 85 }
+  ];
 
-  private arithmeticService = inject(ArithmeticServiceService);
-
-  constructor() { }
-
-  // injecting services into services
-  // constructor(private arithmeticService: ArithmeticServiceService) { }
+  constructor(private arithmeticService: ArithmeticServiceService) { }
 
   public pushMarksDetails(details: MarksDetails): void {
     this.centralMarksDetails.push(details);
   }
 
-  public getMarksDetails(): Array<MarksDetails> {
+  public getMarksDetails(): MarksDetails[] {
     return this.centralMarksDetails;
   }
 
-  // injecting services into services
   public getSum(value1: number, value2: number): number {
     return this.arithmeticService.getSum(value1, value2);
   }

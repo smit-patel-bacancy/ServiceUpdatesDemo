@@ -1,0 +1,138 @@
+.signals-two {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h4 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .todo-section,
+  .user-section,
+  .async-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    h5 {
+      color: #495057;
+      margin-bottom: 15px;
+    }
+  }
+
+  .todo-form,
+  .user-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+
+      &:focus {
+        outline: none;
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
+    }
+
+    button {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &:active {
+        background-color: #004085;
+      }
+    }
+  }
+
+  .todo-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+
+      &.completed span {
+        text-decoration: line-through;
+        color: #6c757d;
+      }
+
+      span {
+        cursor: pointer;
+        flex: 1;
+      }
+    }
+  }
+
+  .delete-btn {
+    background-color: #dc3545;
+    padding: 4px 8px;
+    margin-left: 10px;
+
+    &:hover {
+      background-color: #c82333;
+    }
+  }
+
+  .todo-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    color: #495057;
+  }
+
+  .user-display {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    margin-top: 15px;
+
+    p {
+      margin: 5px 0;
+      color: #495057;
+    }
+  }
+
+  .async-data {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+
+    h4 {
+      color: #495057;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #6c757d;
+    }
+  }
+}

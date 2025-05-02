@@ -1,0 +1,66 @@
+<div class="component-one p-3">
+  <div class="card border-0 shadow-sm">
+    <div class="card-header bg-transparent border-0">
+      <h4 class="mb-0 text-success"><i class="fas fa-calculator me-2"></i>Component One</h4>
+    </div>
+    <div class="card-body">
+      <div class="marks-section mb-4">
+        <h5 class="text-success mb-3"><i class="fas fa-graduation-cap me-2"></i>Marks Details</h5>
+        <div class="table-responsive">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th class="text-muted">Subject</th>
+                <th class="text-muted">Marks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let detail of marksDetails">
+                <td>{{ detail.subject }}</td>
+                <td>
+                  <span class="badge bg-light text-success">{{ detail.marks }}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="add-marks mt-3">
+          <div class="row g-2">
+            <div class="col-md-5">
+              <input [(ngModel)]="subject" class="form-control" placeholder="Subject">
+            </div>
+            <div class="col-md-5">
+              <input [(ngModel)]="marks" type="number" class="form-control" placeholder="Marks">
+            </div>
+            <div class="col-md-2">
+              <button (click)="pushIntoArray()" class="btn btn-success w-100">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arithmetic-section">
+        <h5 class="text-success mb-3"><i class="fas fa-plus-minus me-2"></i>Arithmetic Operation</h5>
+        <div class="row g-2">
+          <div class="col-md-5">
+            <input [(ngModel)]="valueOne" type="number" class="form-control" placeholder="First Number">
+          </div>
+          <div class="col-md-5">
+            <input [(ngModel)]="valueTwo" type="number" class="form-control" placeholder="Second Number">
+          </div>
+          <div class="col-md-2">
+            <button (click)="getSum()" class="btn btn-success w-100">
+              <i class="fas fa-equals"></i>
+            </button>
+          </div>
+        </div>
+        <div *ngIf="result !== undefined" class="alert alert-light mt-3 text-success">
+          <i class="fas fa-calculator me-2"></i>Result: <strong>{{ result }}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

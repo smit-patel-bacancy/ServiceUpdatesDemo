@@ -1,0 +1,148 @@
+<div class="signals-two p-3">
+  <div class="card border-0 shadow-sm">
+    <div class="card-header bg-transparent border-0">
+      <h4 class="mb-0 text-purple"><i class="fas fa-signal me-2"></i>Signals Two</h4>
+    </div>
+    <div class="card-body">
+      <div class="todo-section mb-4">
+        <h5 class="text-purple mb-3"><i class="fas fa-tasks me-2"></i>Todo List</h5>
+        <div class="input-group mb-3">
+          <input [(ngModel)]="newTodo" class="form-control" placeholder="Add new todo">
+          <button (click)="addTodo()" class="btn btn-purple">
+            <i class="fas fa-plus me-2"></i>Add
+          </button>
+        </div>
+        <div class="list-group">
+          <div *ngFor="let todo of todos()" class="list-group-item d-flex justify-content-between align-items-center hover-effect">
+            <span>{{ todo.text }}</span>
+            <button (click)="removeTodo(todo.id)" class="btn btn-sm btn-outline-purple">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="user-section mb-4">
+        <h5 class="text-purple mb-3"><i class="fas fa-user me-2"></i>User Profile</h5>
+        <div class="card bg-gradient mb-3">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-2">
+              <i class="fas fa-user-circle text-purple me-2"></i>
+              <span class="text-muted">Name:</span>
+              <span class="ms-2 fw-bold">{{ user().name }}</span>
+            </div>
+            <div class="d-flex align-items-center mb-2">
+              <i class="fas fa-birthday-cake text-purple me-2"></i>
+              <span class="text-muted">Age:</span>
+              <span class="ms-2 fw-bold">{{ user().age }}</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="fas fa-check-circle text-purple me-2"></i>
+              <span class="text-muted">Status:</span>
+              <span class="ms-2 badge bg-purple-50 text-purple">{{ userStatus() }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="card border-purple">
+          <div class="card-body">
+            <h6 class="text-purple mb-3">Update Profile</h6>
+            <div class="row g-3">
+              <div class="col-md-5">
+                <div class="input-group">
+                  <span class="input-group-text bg-purple-50">
+                    <i class="fas fa-user text-purple"></i>
+                  </span>
+                  <input [(ngModel)]="userName" class="form-control" placeholder="Enter name">
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <span class="input-group-text bg-purple-50">
+                    <i class="fas fa-birthday-cake text-purple"></i>
+                  </span>
+                  <input [(ngModel)]="userAge" type="number" class="form-control" placeholder="Enter age">
+                </div>
+              </div>
+              <div class="col-md-2">
+                <button (click)="updateUser()" class="btn btn-purple w-100">
+                  <i class="fas fa-save"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="async-section">
+        <h5 class="text-purple mb-3"><i class="fas fa-sync me-2"></i>Async Data</h5>
+        <div class="d-flex gap-2">
+          <button (click)="fetchData()" class="btn btn-purple flex-grow-1">
+            <i class="fas fa-sync me-2"></i>Fetch Data
+          </button>
+        </div>
+        <div *ngIf="asyncData()" class="alert alert-purple-50 mt-3 text-purple">
+          <i class="fas fa-database me-2"></i>Data: <strong>{{ asyncData()?.title }}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.bg-gradient {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+}
+
+.bg-purple-50 {
+  background-color: #f3e5f5;
+}
+
+.alert-purple-50 {
+  background-color: #f3e5f5;
+  border-color: #e1bee7;
+}
+
+.text-purple {
+  color: #7b1fa2;
+}
+
+.btn-purple {
+  background-color: #7b1fa2;
+  border-color: #7b1fa2;
+  color: white;
+}
+
+.btn-purple:hover {
+  background-color: #6a1b9a;
+  border-color: #6a1b9a;
+  color: white;
+}
+
+.btn-outline-purple {
+  color: #7b1fa2;
+  border-color: #7b1fa2;
+}
+
+.btn-outline-purple:hover {
+  background-color: #7b1fa2;
+  color: white;
+}
+
+.border-purple {
+  border-color: #e1bee7 !important;
+}
+
+.badge.bg-purple-50 {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.hover-effect {
+  transition: all 0.3s ease;
+}
+
+.hover-effect:hover {
+  background-color: #f3e5f5;
+  transform: translateX(5px);
+}
+</style>

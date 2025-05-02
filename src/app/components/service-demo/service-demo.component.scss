@@ -1,0 +1,24 @@
+.service-demo {
+  padding: 20px;
+
+  h3 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .components-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .component-wrapper {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+}

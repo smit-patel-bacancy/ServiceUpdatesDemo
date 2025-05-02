@@ -1,0 +1,64 @@
+.signals-one {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h4 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .counter-section,
+  .computed-section,
+  .user-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    h5 {
+      color: #495057;
+      margin-bottom: 15px;
+    }
+  }
+
+  .counter-display,
+  .computed-display,
+  .user-display {
+    font-size: 1.2em;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #495057;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    button {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &:active {
+        background-color: #004085;
+      }
+    }
+  }
+}
