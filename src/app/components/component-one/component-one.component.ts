@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ArithmeticServiceService } from '../../services/arithmetic-service.service';
@@ -22,10 +22,14 @@ export class ComponentOneComponent implements OnInit {
   public valueTwo: string = '';
   public result!: number;
 
-  constructor(
-    public marksService: DataServiceService,
-    private arithmeticService: ArithmeticServiceService
-  ) { }
+  public marksService = inject(DataServiceService);
+  private arithmeticService = inject(ArithmeticServiceService);
+
+  constructor() { }
+  // constructor(
+  //   public marksService: DataServiceService,
+  //   private arithmeticService: ArithmeticServiceService
+  // ) { }
 
   ngOnInit(): void {
     // Use of Service Marks Array
